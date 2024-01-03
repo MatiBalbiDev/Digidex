@@ -12,7 +12,11 @@
       <h1>Digidex</h1>
     </header>
     <nav>
-      <form>
+      <form
+        id="form_digimon"
+        name="form_digimon"
+        onsubmit="buscarDigimon(event)"
+      >
         <input
           type="search"
           name="search_digimon"
@@ -22,11 +26,18 @@
       </form>
     </nav>
     <main>
-      <article>
-        <img src="imagen digimon" alt="" />
-        <p>id digimon</p>
-        <h3>Nombre digimon</h3>
-      </article>
+      <section id="card_digimon">
+        <article id="encabezado_digimon">
+          <img id="imagen_digimon" src="" alt="" />
+          <p id="id_digimon"></p>
+          <h3 id="nombre_digimon"></h3>
+        </article>
+        <article id="detalle_digimon">
+          <p id="descripcion_digimon"></p>
+          <p id="nivel_digimon"></p>
+          <p id="tipo_digimon"></p>
+        </article>
+      </section>
     </main>
     <footer>Hecho con mucho cariño</footer>
   </body>
