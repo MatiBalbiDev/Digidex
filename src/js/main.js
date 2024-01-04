@@ -1,7 +1,7 @@
 const API_URL = "https://digi-api.com/api/v1/digimon/";
 let nameDigimonDefault = "agumon";
 
-renderizarUnDigimon(nameDigimonDefault);
+//renderizarUnDigimon(nameDigimonDefault);
 
 async function renderizarUnDigimon(nameDigimonDefault) {
   const digimon = await fetch(API_URL + nameDigimonDefault).then((res) =>
