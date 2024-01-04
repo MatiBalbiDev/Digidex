@@ -36,3 +36,18 @@ function buscarDigimon(event) {
   nameDigimonDefault = searchValue.toLowerCase();
   renderizarUnDigimon(nameDigimonDefault);
 }
+listarDigimons();
+async function listarDigimons() {
+  const digimons = await fetch(API_URL).then((res) => res.json());
+  for (let dig of digimons["content"]) {
+    let template = `
+      <article class="encabezado_digimon">
+        <img class="imagen_digimon" src="${dig.image}" alt="" />
+        <p id="${dig.id}">${dig.id}</p>
+        <h3 class="nombre_digimon">${dig.name}</h3>
+      </article> 
+    `;
+
+    document.getElementById("card_digimon").innerHTML += template;
+  }
+}
