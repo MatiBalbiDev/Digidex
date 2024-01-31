@@ -9,14 +9,21 @@ async function renderizarUnDigimon(nameDigimonDefault) {
   );
   let { id, name, attributes, descriptions, images, levels, fields, types } =
     digimon;
-  document.getElementById("imagen_digimon").src = images[0].href;
+  let template = `
+    <article class="encabezado_digimon">
+      <img class="imagen_digimon" src="${images[0].href}" alt="" />
+      <p id="${id}">${id}</p>
+      <h3 class="nombre_digimon">${name}</h3>
+    </article> 
+  `;
 
-  document.getElementById("id_digimon").innerHTML = id;
-  document.getElementById("nombre_digimon").innerHTML = name;
-  document.getElementById("descripcion_digimon").innerHTML =
-    descriptions[0].description;
-  document.getElementById("nivel_digimon").innerHTML = levels[0].level;
-  document.getElementById("tipo_digimon").innerHTML = types[0].type;
+  let cards = document.getElementById("card_digimon");
+  for (let i = cards.childNodes.length - 1; i >= 0; i--) {
+    if (cards.childNodes[i].nodeName === "ARTICLE") {
+      cards.childNodes[i].remove();
+    }
+  }
+  cards.innerHTML += template;
 }
 
 //imagen[0].src = digimon.images.href;
@@ -36,7 +43,7 @@ function buscarDigimon(event) {
   nameDigimonDefault = searchValue.toLowerCase();
   renderizarUnDigimon(nameDigimonDefault);
 }
-listarDigimons();
+
 async function listarDigimons() {
   const digimons = await fetch(API_URL).then((res) => res.json());
   for (let dig of digimons["content"]) {
@@ -51,3 +58,5 @@ async function listarDigimons() {
     document.getElementById("card_digimon").innerHTML += template;
   }
 }
+
+listarDigimons();
