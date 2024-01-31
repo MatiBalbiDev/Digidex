@@ -1,0 +1,26 @@
+* {
+  box-sizing: border-box;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.searcher {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#card_digimon {
+  margin-top: 100px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 100px;
+  width: 100%;
+}
